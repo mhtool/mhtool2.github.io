@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var a=document.getElementById('img');
+		function getUrl(url){
+			let arr = url.split('?');
+			let params = arr[1].split('&');
+			let obj = {};
+		   	for(let i=0;i<params.length;i++){
+				let param = params[i].split('=');
+				obj[param[0]] = param[1];
+			}
+			return obj;
+		}
+		window.onload=function(){
+			var a=getUrl(window.pathname)[0];
+			alert(a);
+		}
+	</script>
+</head>
+
+<body>
+	<img src="" alt="loading....." id="img">
+	<div class="button"><</div>
+	<div class="button">></div>
+</body>
+</html>
