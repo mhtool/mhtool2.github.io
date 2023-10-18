@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>
-		var a=document.getElementById('img');
-		function getUrl(url){
-			let arr = url.split('?');
-			let params = arr[1].split('&');
-			let obj = {};
-		   	for(let i=0;i<params.length;i++){
-				let param = params[i].split('=');
-				obj[param[0]] = param[1];
-			}
-			return obj;
+	<style type="text/css">
+		*{
+			text-align: center;
 		}
-		window.onload=function(){
-			var a=getUrl(window.pathname)[0];
-			alert(a);
+		.button{
+			background-color: lightgrey;
+			font-size: 100px;
+			line-height: 2cm;
 		}
-	</script>
+		.b1{
+			float: left;
+		}
+		.b2{
+			float: right;
+		}
+	</style>
 </head>
 
 <body>
-	<img src="" alt="loading....." id="img">
-	<div class="button"><</div>
-	<div class="button">></div>
+
+        <div class="button b1"><</div>
+        <img src="" alt="loading....." id="img" width="550" height="838">
+	<div class="button b2">></div>
 </body>
+<script>
+		var a=document.getElementById('img');
+		function getUrl() { 
+			var url = location.search; //???url?"?"??????? 
+			var theRequest = new Object(); 
+			if (url.indexOf("?") != -1) {
+				var str = url.substr(1); 
+				strs = str.split("&"); 
+				for(var i = 0; i < strs.length; i ++) {
+					theRequest[strs[i].split("=")[0]]=decodeURIComponent(strs[i].split("=")[1]); 
+				} 
+			} 
+			return theRequest; 
+		} 
+		
+		var req = getUrl(); 
+		
+		var q = req['page'];
+		
+		//alert(query);
+		window.onload=function(){
+			if(q==1){
+                           // alert(1);
+                            a.src="https://blys.neocities.org/1.jpg";
+                        }
+		}
+	</script>
 </html>
