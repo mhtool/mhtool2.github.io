@@ -21,11 +21,12 @@
 
 <body>
 
-        <div class="button b1"><</div>
+        <div class="button b1" onclick="l();"><</div>
         <img src="" alt="loading....." id="img" width="550" height="838">
-	<div class="button b2">></div>
+	<div class="button b2" onclick="r();">></div>
 </body>
 <script>
+		
 		var a=document.getElementById('img');
 		function getUrl() { 
 			var url = location.search; //???url?"?"??????? 
@@ -43,12 +44,23 @@
 		var req = getUrl(); 
 		
 		var q = req['page'];
-		
+		function l(){
+			if(q<2){
+				alert("已是第一页");
+			}
+			else window.open("https://mhtool.github.io/book1?page="+((Number(q)-1)),"self");
+		}
+		function r(){
+			//if(q<2){
+			//	alert("已是第一页");
+			//}
+			window.open("https://mhtool.github.io/book1?page="+((Number(q)+1)),"self");
+		}
 		//alert(query);
 		window.onload=function(){
-			if(q==1){
+			if(q>0){
                            // alert(1);
-                            a.src="https://blys.neocities.org/1.jpg";
+                            a.src="https://blys.neocities.org/"+q+".jpg";
                         }
 		}
 	</script>
