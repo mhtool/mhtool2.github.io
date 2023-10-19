@@ -54,13 +54,16 @@
 			//if(q<2){
 			//	alert("已是第一页");
 			//}
-			window.open("https://mhtool.github.io/book1?page="+((Number(q)+1)),"self");
+			window.open("https://mhtool.github.io/book1?page="+((Number(q)+1)),"_blank");
 		}
 		//alert(query);
 		window.onload=function(){
 			if(q>0){
                            // alert(1);
                             a.src="https://blys.neocities.org/"+q+".jpg";
+                        }
+                        else{
+                        	window.open("https://mhtool.github.io/book1?page=1","_blank");
                         }
 		}
 	</script>
